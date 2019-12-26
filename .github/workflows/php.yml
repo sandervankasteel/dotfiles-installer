@@ -4,8 +4,10 @@ on: [push]
 
 jobs:
   build:
-
     runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest]
 
     steps:
       - uses: actions/checkout@v1
@@ -21,8 +23,3 @@ jobs:
 
     # - name: Run test suite
     #   run: composer run-script test
-
-
-strategy:
-  matrix:
-    os: [ubuntu-latest, macos-latest]
